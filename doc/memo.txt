@@ -1,0 +1,49 @@
+npx create-next-app@14.2.16 --ts --tailwind --eslint --app
+
+cd [project-name]
+
+npm install v0@latest
+
+npx v0@latest init
+
+npx shadcn@latest add button card input textarea label select badge dialog scroll-area tabs
+
+npm install lucide-react framer-motion react-hook-form
+
+V0で生成されたもんを持ってきて色々修正
+
+============================================================
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/tns-develop/tns-project-history.git
+git push -u origin main
+
+
+git config --global user.email "tns.develop@tns-develop.com"
+git config --global user.name "tns-develop"
+
+============================================================
+
+
+# 目的
+職務経歴書を作成するWEBアプリを開発します。
+ベースのソースがあるので、それをベースにNext.jsで開発します。
+
+ベースのソース：/app/src/tns-project-history/components/interactive-resume.tsx
+
+# 環境
+Next.js(App Router)
+TypeScript
+Tailwind CSS
+
+# 生成AIへの要求
+ベースのソースをもとに、Next.jsのモダンなコーディング方法でコンポーネントに分割してください。
+分割したソースは「/app/src/tns-project-history/app/」に配置してください。
+必要に応じてベースのソースから変更してくれて問題ありませんが、変更した箇所には変更理由のコメントを残してください。
+また、「initialProjects」に設定されているデータは仮の値で、実際にはAPIから取得したものを設定します。
+APIからのデータを取得する処理も実装してください。
+
+
+============================================================
+
+interactive-resume.tsx

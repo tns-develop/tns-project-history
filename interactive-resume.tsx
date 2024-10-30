@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useReducer } from "react"
-import { useForm, Controller } from "react-hook-form"
+import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -83,14 +83,18 @@ const initialProjects: Project[] = [
   // 他のプロジェクトを追加...
 ]
 
-export default function InteractiveResume() {
+// 型安全なsplitComma関数の定義
+const splitComma = (value: string): string[] => value.split(',').map(s => s.trim()).filter(Boolean)
+
+export function InteractiveResumeComponent() {
   const [projects, dispatch] = useReducer(projectReducer, initialProjects)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isAddModalOpen, setIsAddModalOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [filters, setFilters] = useState<string[]>([])
 
-  const { register, handleSubmit, control, reset } = useForm<Project>()
+  // useFormの型付け
+  const { register, handleSubmit, reset } = useForm<Project>()
 
   const onSubmit = (data: Project) => {
     if (isEditModalOpen) {
@@ -122,7 +126,7 @@ export default function InteractiveResume() {
     ...project.technologies.frameworks,
     ...project.technologies.tools
   ])
-  const uniqueTechnologies = [...new Set(allTechnologies)]
+  const uniqueTechnologies = Array.from(new Set(allTechnologies))
 
   return (
     <div className="container mx-auto p-4">
@@ -328,31 +332,80 @@ export default function InteractiveResume() {
             </div>
             <div>
               <Label htmlFor="responsibilities">担当業務（カンマ区切り）</Label>
-              <Textarea id="responsibilities" {...register('responsibilities', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.responsibilities.join(',')} />
+              <Textarea
+                id="responsibilities"
+                {...register('responsibilities', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.responsibilities.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="languages">使用言語（カンマ区切り）</Label>
-              <Input id="languages" {...register('technologies.languages', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.technologies.languages.join(',')} />
+              <Input
+                id="languages"
+                {...register('technologies.languages', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.technologies.languages.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="frameworks">フレームワーク（カンマ区切り）</Label>
-              <Input id="frameworks" {...register('technologies.frameworks', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.technologies.frameworks.join(',')} />
+              <Input
+                id="frameworks"
+                {...register('technologies.frameworks', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.technologies.frameworks.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="tools">ツール・技術（カンマ区切り）</Label>
-              <Input id="tools" {...register('technologies.tools', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.technologies.tools.join(',')} />
+              <Input
+                id="tools"
+                {...register('technologies.tools', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.technologies.tools.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="challenges">直面した課題（カンマ区切り）</Label>
-              <Textarea id="challenges" {...register('challenges', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.challenges.join(',')} />
+              <Textarea
+                id="challenges"
+                {...register('challenges', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.challenges.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="achievements">主な成果（カンマ区切り）</Label>
-              <Textarea id="achievements" {...register('achievements', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.achievements.join(',')} />
+              <Textarea
+                id="achievements"
+                {...register('achievements', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.achievements.join(',')}
+              />
             </div>
             <div>
               <Label htmlFor="learnings">学んだこと（カンマ区切り）</Label>
-              <Textarea id="learnings" {...register('learnings', { required: true, setValueAs: v => v.split(',') })} defaultValue={selectedProject?.learnings.join(',')} />
+              <Textarea
+                id="learnings"
+                {...register('learnings', {
+                  required: true,
+                  setValueAs: (value: string) => splitComma(value)
+                })}
+                defaultValue={selectedProject?.learnings.join(',')}
+              />
             </div>
             <Button type="submit">{isEditModalOpen ? '更新' : '追加'}</Button>
           </form>

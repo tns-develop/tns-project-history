@@ -4,9 +4,9 @@ services:
     build: .
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
-      # VSCode拡張機能のキャッシュ用
-      - vscode-extensions:/root/.vscode-server/extensions
+      # - node_modules:/app/node_modules
+      # # VSCode拡張機能のキャッシュ用
+      # - vscode-extensions:/root/.vscode-server/extensions
     tty: true
     restart: always
     command: /bin/bash
@@ -14,6 +14,6 @@ services:
       - "3000:3000"  # アプリケーションポート
       - "9229:9229"  # デバッグポート
 
-volumes:
-  node_modules:
-  vscode-extensions:
+# volumes:
+#   node_modules:
+#   vscode-extensions:

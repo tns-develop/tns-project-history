@@ -1,7 +1,9 @@
-import InteractiveResume from "./interactive-resume"
+import { InteractiveResumeComponent } from "../components/interactive-resume";
 
 export default function Home() {
-  return <InteractiveResume />
+  return (
+    <InteractiveResumeComponent />
+  );
 }
 
 // import Image from "next/image";
