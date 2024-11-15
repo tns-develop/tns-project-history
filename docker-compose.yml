@@ -1,19 +1,14 @@
 version: '3.8'
 services:
   app:
-    build: .
+    build:
+      context: .
     volumes:
       - .:/app
-      # - node_modules:/app/node_modules
-      # # VSCode拡張機能のキャッシュ用
-      # - vscode-extensions:/root/.vscode-server/extensions
-    tty: true
-    restart: always
+    container_name: "tns-project-history"
     command: /bin/bash
     ports:
       - "3000:3000"  # アプリケーションポート
       - "9229:9229"  # デバッグポート
-
-# volumes:
-#   node_modules:
-#   vscode-extensions:
+    tty: true
+    restart: always

@@ -29,7 +29,7 @@ git config --global user.name "tns-develop"
 職務経歴書を作成するWEBアプリを開発します。
 ベースのソースがあるので、それをベースにNext.jsで開発します。
 
-ベースのソース：/app/src/tns-project-history/components/interactive-resume.tsx
+ベースのソース：/app/src/tns-projects-history/components/interactive-resume.tsx
 
 # 環境
 Next.js(App Router)
