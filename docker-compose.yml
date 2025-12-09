@@ -3,12 +3,21 @@ services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/app
+      - /app/node_modules  # ホストのnode_modulesで上書きされるのを防ぐ
+    working_dir: /app
     container_name: "tns-project-history"
     command: /bin/bash
     ports:
-      - "3000:3000"  # アプリケーションポート
+      - "5000:5000"  # アプリケーションポート
       - "9229:9229"  # デバッグポート
+    environment:
+      - TZ=Asia/Tokyo
+      - NODE_ENV=${NODE_ENV:-development}
+      - CHOKIDAR_USEPOLLING=true  # ファイル監視の互換性向上
     tty: true
+    stdin_open: true  # インタラクティブ入力を有効化
+    init: true  # PID 1問題を解決、シグナルハンドリング改善
     restart: always
