@@ -1,4 +1,10 @@
 {
+  "name": "app",
+  "private": true,
+  "packageManager": "yarn@4.12.0",
+  "workspaces": [
+    "src/tns-projects-history"
+  ],
   "dependencies": {
     "next": "^14.2.16",
     "react": "^18.2.0",
