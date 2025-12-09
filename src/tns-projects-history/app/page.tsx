@@ -1,7 +1,8 @@
 import { Suspense } from 'react'
+
 import { ProjectsLoading, ProjectsList, ProjectsProvider } from '@/features'
 
-export default function ProjectsPage() {
+export default function ProjectsPage(): JSX.Element {
   return (
     <ProjectsProvider>
       <div className="container mx-auto p-4">
