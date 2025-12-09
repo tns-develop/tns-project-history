@@ -1,7 +1,5 @@
 import { Suspense } from 'react'
-import { ProjectsProvider } from '../contexts/ProjectsContext'
-import { ProjectsList } from '../components/ProjectsList'
-import { ProjectsLoading } from '../components/ProjectsLoading'
+import { ProjectsLoading, ProjectsList, ProjectsProvider } from '@/features'
 
 export default function ProjectsPage() {
   return (

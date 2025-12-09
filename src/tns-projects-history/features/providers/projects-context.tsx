@@ -1,8 +1,8 @@
 'use client'
 
 import { createContext, useContext, useReducer, useEffect } from 'react'
-import { Project, Action } from '../types/project'
-import { fetchProjects } from '../lib/api'
+import { Project, Action } from '../types'
+import { fetchProjects } from '../api/client'
 
 /**
  * プロジェクト管理用のコンテキスト

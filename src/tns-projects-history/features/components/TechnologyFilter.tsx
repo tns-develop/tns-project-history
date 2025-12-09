@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge } from "@/components/ui/badge"
-import { Project } from "../types/project"
+import { Badge } from "@/shared/ui/badge"
+import { Project } from "../types"
 
 type TechnologyFilterProps = {
   projects: Project[]

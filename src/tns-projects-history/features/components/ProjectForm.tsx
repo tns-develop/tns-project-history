@@ -1,14 +1,14 @@
 'use client'
 
 import { useForm } from "react-hook-form"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Project } from "../types/project"
-import { useProjects } from "../contexts/ProjectsContext"
-import { createProject, updateProject } from "../lib/api"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/ui/dialog"
+import { Button } from "@/shared/ui/button"
+import { Input } from "@/shared/ui/input"
+import { Textarea } from "@/shared/ui/textarea"
+import { Label } from "@/shared/ui/label"
+import { Project } from "../types"
+import { useProjects } from "../providers/projects-context"
+import { createProject, updateProject } from "../api/client"
 
 type ProjectFormProps = {
   project: Project | null
@@ -74,7 +74,7 @@ export function ProjectForm({ project, isOpen, onClose }: ProjectFormProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[700px]">
         <DialogHeader>
-          <DialogTitle>{project ? 'プロジェクトを編' : '新しいプロジェクトを追加'}</DialogTitle>
+          <DialogTitle>{project ? 'プロジェクトを編集' : '新しいプロジェクトを追加'}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>

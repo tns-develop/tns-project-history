@@ -1,10 +1,10 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/shared/ui/card"
+import { Badge } from "@/shared/ui/badge"
+import { Button } from "@/shared/ui/button"
 import { CalendarIcon, UsersIcon, TrendingUpIcon, EditIcon } from "lucide-react"
-import { Project } from "../types/project"
+import { Project } from "../types"
 import { motion } from 'framer-motion'
 
 type ProjectCardProps = {

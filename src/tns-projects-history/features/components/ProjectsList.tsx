@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useProjects } from '../contexts/ProjectsContext'
+import { useProjects } from '../providers/projects-context'
 import { ProjectCard } from './ProjectCard'
 import { ProjectDialog } from './ProjectDialog'
 import { ProjectForm } from './ProjectForm'
 import { TechnologyFilter } from './TechnologyFilter'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/shared/ui/button'
 import { PlusIcon } from 'lucide-react'
-import { Project } from '../types/project'
+import { Project } from '../types'
 
 /**
  * プロジェクト一覧を表示するメインコンポーネント

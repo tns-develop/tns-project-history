@@ -4,17 +4,15 @@ export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
-  const id = parseInt(params.id)
   const project = await request.json()
   // データベース更新処理
-  return NextResponse.json(project)
+  return NextResponse.json({ ...project, id: Number(params.id) })
 }
 
 export async function DELETE(
-  request: Request,
+  _request: Request,
   { params }: { params: { id: string } }
 ) {
-  const id = parseInt(params.id)
   // データベース削除処理
-  return new NextResponse(null, { status: 204 })
+  return NextResponse.json({ deleted: Number(params.id) })
 }

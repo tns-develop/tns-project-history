@@ -1,10 +1,10 @@
 'use client'
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Project } from "../types/project"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/shared/ui/dialog"
+import { ScrollArea } from "@/shared/ui/scroll-area"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs"
+import { Badge } from "@/shared/ui/badge"
+import { Project } from "../types"
 
 type ProjectDialogProps = {
   project: Project | null
