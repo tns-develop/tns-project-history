@@ -22,8 +22,18 @@ type ProjectFormProps = {
  * - 各要素をトリムして空文字列を除去
  * - 結果をフィルタリングして空文字列を除去
  */
-const splitComma = (value: string): string[] =>
-  value.split(',').map(s => s.trim()).filter(Boolean)
+const splitComma = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value.map(String).map(s => s.trim()).filter(Boolean)
+  }
+  if (typeof value === 'string') {
+    return value.split(',').map(s => s.trim()).filter(Boolean)
+  }
+  if (value == null) {
+    return []
+  }
+  return String(value).split(',').map(s => s.trim()).filter(Boolean)
+}
 
 /**
  * プロジェクトの追加・編集用フォームコンポーネント

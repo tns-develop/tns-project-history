@@ -1,6 +1,6 @@
 export { ProjectsProvider, useProjects } from './providers/projects-context'
 export { fetchProjects, createProject, updateProject, deleteProject } from './api/client'
-export { Project } from './types'
+export type { Project, Action } from './types'
 export { ProjectsList } from './components/ProjectsList'
 export { ProjectsLoading } from './components/ProjectsLoading'
 export { ProjectCard } from './components/ProjectCard'

@@ -47,7 +47,8 @@
         "newlines-between": "always",
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
-    ]
+    ],
+    "@next/next/no-document-import-in-page": "off"
   },
   "ignorePatterns": [".next", "node_modules"]
 }
