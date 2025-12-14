@@ -1,6 +1,8 @@
-{
-  "root": true,
-  "extends": [
+const path = require('path');
+
+module.exports = {
+  root: true,
+  extends: [
     "next/core-web-vitals",
     "next/typescript",
     "plugin:@typescript-eslint/recommended",
@@ -8,16 +10,19 @@
     "plugin:import/typescript",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "unused-imports"],
-  "settings": {
+  plugins: ["@typescript-eslint", "unused-imports"],
+  settings: {
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true,
-        "project": "./tsconfig.json"
+        "project": path.join(__dirname, "tsconfig.json")
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
-  "rules": {
+  rules: {
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { "prefer": "type-imports", "disallowTypeAnnotations": false }
@@ -50,5 +55,6 @@
     ],
     "@next/next/no-document-import-in-page": "off"
   },
-  "ignorePatterns": [".next", "node_modules"]
-}
+  ignorePatterns: [".next", "node_modules"]
+};
+

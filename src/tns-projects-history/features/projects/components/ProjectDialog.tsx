@@ -1,10 +1,11 @@
 'use client'
 
+import type { Project } from "../../types"
+
+import { Badge } from "@/shared/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/shared/ui/dialog"
 import { ScrollArea } from "@/shared/ui/scroll-area"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs"
-import { Badge } from "@/shared/ui/badge"
-import { Project } from "../types"
 
 type ProjectDialogProps = {
   project: Project | null

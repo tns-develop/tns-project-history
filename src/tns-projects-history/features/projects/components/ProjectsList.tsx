@@ -1,19 +1,19 @@
 'use client'
 
-import { useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { FolderOpen, PlusIcon } from 'lucide-react'
-
-import { Button } from '@/shared/ui/button'
-
-import { useProjects } from '../providers/projects-context'
-import { Project } from '../types'
+import { useState } from 'react'
 
 import { ProjectCard } from './ProjectCard'
 import { ProjectDialog } from './ProjectDialog'
 import { ProjectForm } from './ProjectForm'
 import { TechnologyFilter } from './TechnologyFilter'
+
+import type { Project } from '../../types'
+
+import { useProjects } from '@/features/providers/projects-context'
+import { Button } from '@/shared/ui/button'
 
 /**
  * プロジェクト一覧を表示するメインコンポーネント

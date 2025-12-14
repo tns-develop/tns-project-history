@@ -1,14 +1,17 @@
 'use client'
 
 import { useForm } from "react-hook-form"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/ui/dialog"
+
+import { createProject, updateProject } from "@/features/api/client"
+import { useProjects } from "@/features/providers/projects-context"
 import { Button } from "@/shared/ui/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/ui/dialog"
 import { Input } from "@/shared/ui/input"
-import { Textarea } from "@/shared/ui/textarea"
 import { Label } from "@/shared/ui/label"
-import { Project } from "../types"
-import { useProjects } from "../providers/projects-context"
-import { createProject, updateProject } from "../api/client"
+import { Textarea } from "@/shared/ui/textarea"
+
+import type { Project } from "../../types"
+import type { ReactElement } from "react"
 
 type ProjectFormProps = {
   project: Project | null
@@ -42,7 +45,7 @@ const splitComma = (value: unknown): string[] => {
  * - カンマ区切りテキストの配列変換
  * - 既存データの編集対応
  */
-export function ProjectForm({ project, isOpen, onClose }: ProjectFormProps) {
+export function ProjectForm({ project, isOpen, onClose }: ProjectFormProps): ReactElement {
   const { dispatch } = useProjects()
   const { register, handleSubmit, reset } = useForm<Project>({
     defaultValues: project || {
@@ -64,7 +67,7 @@ export function ProjectForm({ project, isOpen, onClose }: ProjectFormProps) {
     }
   })
 
-  const onSubmit = async (data: Project) => {
+  const onSubmit = async (data: Project): Promise<void> => {
     try {
       if (project) {
         const updatedProject = await updateProject({ ...data, id: project.id })

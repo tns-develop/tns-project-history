@@ -2,10 +2,11 @@
 
 import { Filter, X } from "lucide-react"
 
+import type { Project } from "../../types"
+
 import { Badge } from "@/shared/ui/badge"
 import { Button } from "@/shared/ui/button"
 
-import { Project } from "../types"
 
 type TechnologyFilterProps = {
   projects: Project[]

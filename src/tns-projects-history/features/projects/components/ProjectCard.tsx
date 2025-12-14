@@ -3,11 +3,13 @@
 import { motion } from "framer-motion"
 import { CalendarIcon, EditIcon, TrendingUpIcon, UsersIcon } from "lucide-react"
 
+
 import { Badge } from "@/shared/ui/badge"
 import { Button } from "@/shared/ui/button"
 import { Card, CardContent } from "@/shared/ui/card"
 
-import { Project } from "../types"
+import type { Project } from "../../types"
+
 
 type ProjectCardProps = {
   project: Project

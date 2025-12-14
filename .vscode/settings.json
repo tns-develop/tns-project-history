@@ -1,0 +1,9 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "pattern": "src/tns-projects-history",
+      "changeProcessCWD": true
+    }
+  ]
+}
+
