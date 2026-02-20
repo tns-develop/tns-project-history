@@ -3,7 +3,7 @@ import { Suspense } from "react"
 
 import { ProjectsLoading, ProjectsList, ProjectsProvider } from "@/features"
 
-export default function ProjectsPage(): JSX.Element {
+export default function ProjectsPage(): React.JSX.Element {
   return (
     <ProjectsProvider>
       <div className="min-h-screen bg-gradient-to-b from-primary/5 via-background to-background">
